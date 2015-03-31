@@ -1,12 +1,13 @@
 FROM wurstmeister/base
 
-MAINTAINER Wurstmeister 
+MAINTAINER heartsavior
 
-RUN wget -q -O - http://mirrors.sonic.net/apache/storm/apache-storm-0.9.3/apache-storm-0.9.3.tar.gz | tar -xzf - -C /opt
+RUN wget -q --no-check-certificate -O - "https://www.dropbox.com/s/ldm9t76cm43zqdf/apache-storm-0.10.0-SNAPSHOT.tar.gz" | tar -xzf - -C /opt
 
-ENV STORM_HOME /opt/apache-storm-0.9.3
+ENV STORM_HOME /opt/apache-storm-0.10.0-SNAPSHOT
 RUN groupadd storm; useradd --gid storm --home-dir /home/storm --create-home --shell /bin/bash storm; chown -R storm:storm $STORM_HOME; mkdir /var/log/storm ; chown -R storm:storm /var/log/storm
 
+RUN chmod +x $STORM_HOME/bin/storm
 RUN ln -s $STORM_HOME/bin/storm /usr/bin/storm
 
 ADD storm.yaml $STORM_HOME/conf/storm.yaml

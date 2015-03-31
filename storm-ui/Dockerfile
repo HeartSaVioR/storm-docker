@@ -1,5 +1,5 @@
-FROM wurstmeister/storm:0.9.3
-MAINTAINER Wurstmeister
+FROM heartsavior/storm:0.10.0-SNAPSHOT
+MAINTAINER heartsavior
 RUN /usr/bin/config-supervisord.sh ui
 
 EXPOSE 8080
