@@ -1,4 +1,4 @@
-FROM heartsavior/storm:0.10.0-SNAPSHOT
+FROM heartsavior/storm:0.10.0-WIP-STORM-615-V2
 MAINTAINER heartsavior
 
 EXPOSE 6700
